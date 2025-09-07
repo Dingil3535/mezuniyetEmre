@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <title>Climate Change Articles</title>
+</head>
+<body>
+  <header class="header">
+    <div class="logo-container">
+      <img src="../static/img/climate-logo.svg" alt="Climate Logo" width="30" height="30">
+      <span class="logo-text">Climate Change Awareness</span>
+    </div>
+    <nav class="main-nav">
+      <ul class="main-list">
+        <li class="list__item"><a href="/">Home</a></li>
+        <li class="list__item"><a href="/articles" class="active">Articles</a></li>
+        <li class="list__item"><a href="/about">About</a></li>
+        <li class="list__item"><a href="/contact">Contact</a></li>
+        <li class="list__item">
+          <a href="/login">
+            <img src="../static/img/login.svg" alt="login" width="20" height="20">
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <h1 class="page-title">Climate Change Articles</h1>
+      <p class="page-subtitle">Explore our comprehensive collection of articles about climate science, impacts, and solutions</p>
+    </section>
+
+    <section class="category-filter">
+      <div class="filter-buttons">
+        <a href="/articles" class="filter-btn {% if current_category == 'all' %}active{% endif %}">All Articles</a>
+        <a href="/articles?category=Science" class="filter-btn {% if current_category == 'Science' %}active{% endif %}">Science</a>
+        <a href="/articles?category=Solutions" class="filter-btn {% if current_category == 'Solutions' %}active{% endif %}">Solutions</a>
+        <a href="/articles?category=Impact" class="filter-btn {% if current_category == 'Impact' %}active{% endif %}">Impact</a>
+      </div>
+    </section>
+
+    <section class="articles-listing">
+      {% if articles %}
+        <div class="articles-grid">
+          {% for article in articles %}
+          <article class="article-card">
+            <div class="article-category">{{ article.category }}</div>
+            <h3 class="article-title">{{ article.title }}</h3>
+            <p class="article-subtitle">{{ article.subtitle }}</p>
+            <div class="article-meta">
+              <span class="article-author">By {{ article.author }}</span>
+              <span class="article-date">{{ article.date_created.strftime('%B %d, %Y') }}</span>
+            </div>
+            <a href="/article/{{ article.id }}" class="article-link">Read Full Article</a>
+          </article>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="no-articles">
+          <h3>No articles found</h3>
+          <p>There are no articles in this category yet. Check back soon for new content!</p>
+        </div>
+      {% endif %}
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 Climate Change Awareness. All rights reserved.</p>
+      <p>Educating the world about climate change, one article at a time.</p>
+    </div>
+  </footer>
+</body>
+</html>

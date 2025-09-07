@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Climate Change Awareness</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="../static/img/climate-logo.svg" alt="Climate Logo" width="30" height="30">
+            <span class="logo-text">Climate Change Awareness</span>
+        </div>
+        <nav class="main-nav">
+            <ul class="main-list">
+                <li class="list__item"><a href="/">Home</a></li>
+                <li class="list__item"><a href="/articles">Articles</a></li>
+                <li class="list__item"><a href="/about">About</a></li>
+                <li class="list__item"><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="main-login">
+        <div class="login-container">
+            <h1 class="login-title">Login</h1>
+            <p class="login-subtitle">Access the content system</p>
+            
+            <form action="{{ url_for('login') }}" method="POST" class="login">
+                {% if error %}
+                <p class="error">{{ error }}</p>
+                {% endif %}
+
+                <label for="email">
+                    <input class="form__input" type="email" name="email" id="email" placeholder="Enter your email" required>
+                </label>
+                
+                <label for="password">
+                    <input class="form__input" type="password" name="password" id="password" placeholder="Enter your password" required>
+                </label>
+
+                <button class="form__button">Login</button>
+                <a href="/register" class="form__button reg__link">Register</a>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
