@@ -190,3 +190,6 @@ If you have any questions or need help with the project, please:
 **Remember**: Climate change is one of the most pressing challenges of our time. This platform aims to educate and empower people to take meaningful action. Every small step counts in building a more sustainable future.
 
 🌍 **Together, we can make a difference!** 🌍
+
+
+
